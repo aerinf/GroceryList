@@ -15,7 +15,15 @@
             display();
         }
         function addGrocery() {
-            groceries.push(textInput.value);
+            var duplicate=false;
+            for (var i = 0; i < groceries.length; i++) {
+                if (groceries[i] == textInput.value) {
+                    duplicate=true;
+                }
+            }
+            if (!duplicate) {
+                groceries.push(textInput.value);
+            }
             display();
         }
         function display() {
