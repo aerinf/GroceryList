@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grocery List</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        var groceries=["bread", "milk", "eggs", "chocolate"];
+        function initialize() {
+            displayZone = document.getElementById("groceryList");
+            textInput = document.getElementById("newGrocery");
+            numInput = document.getElementById("numberInput");
+            display();
+        }
+        function addGrocery() {
+            groceries.push(textInput.value);
+            display();
+        }
+        function display() {
+            displayZone.innerHTML="";
+            for (var i = 0; i < groceries.length; i++) {
+                displayZone.innerHTML += (i+1) + ": " + groceries[i] + "<br/>";
+            }
+        }
+        function length() {
+            return groceries.length;
+        }
+        function up() {
+            if (numInput.value < groceries.length+1 && numInput.value > 1) {
+                let copy = groceries[numInput.value-1];
+                groceries[numInput.value-1] = groceries[numInput.value-2];
+                groceries[numInput.value-2] = copy;
+                display();
+                console.log(numInput.value);
+            }
+        }
+        function down() {
+            if (numInput.value < groceries.length && numInput.value > 0) {
+                let copy = groceries[numInput.value-1];
+                groceries[numInput.value-1] = groceries[numInput.value];
+                groceries[numInput.value] = copy;
+                display();
+                console.log(numInput.value);
+            }
+        }
+        function del() {
+            if (numInput.value < groceries.length && numInput.value > 0) {
+                groceries.splice(numInput.value-1,1);
+                display();
+            }   
+        }
+    </script>
+</head>
+<body onload="initialize();">
+    <h1>Grocery List</h1>
+    <div id="fullList">
+        <input type="text" id="newGrocery"><br/>
+        <button onclick="addGrocery()">Add Grocery</button>
+        <div id="groceryList">
+
+        </div>
+        <div id="container">
+            <input type="number" min="0" id="numberInput">
+            <img onclick="up();" src="up-arrow.png">
+            <img onclick="down();" src="down-arrow.png">
+            <img onclick="del();" src="x.png"><br/>
+        </div>
+        <img id="logo" src="logo.png"><br/>
+    </div>
+</body>
+</html>

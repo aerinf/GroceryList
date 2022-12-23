@@ -1,0 +1,49 @@
+#logo {
+    height: 30px;
+    margin-top:10px;
+    position:fixed;
+    width:30%;
+    left:35%;
+    bottom:1%;
+}
+img {
+    width: 40px;
+    height: 40px;
+}
+#newGrocery {
+    margin-top:10px;
+}
+button {
+    margin-bottom: 30px;
+}
+body {
+    font-size: 20px;
+    font-family: 'Segoe UI';
+    text-align: center;
+}
+#groceryList {
+    margin-bottom: 20px;
+}
+#numberInput {
+    width: 40px;
+}
+#container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+h1 {
+    border: 5px black double;
+    margin-left: 30%;
+    margin-right: 30%;
+    padding:4px;
+    background-color: #FCF5E5;
+}
+#fullList {
+    border: 5px black double;
+    margin-left: 30%;
+    margin-right: 30%;
+    padding:4px;
+    background-color: #FCF5E5;
+    height: 700px;
+}
